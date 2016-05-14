@@ -1,0 +1,9 @@
+= simple_form_for @task, class: 'clearfix' do |f|
+  = f.input :name
+  = f.input :ideal_planting_date
+  - if @task.ideal_planting_date
+    = f.input :planted_at
+  - if @task.planted_at
+    = f.input :completed, label: "Harvested"
+  = f.input :notes
+  = f.submit 'Save', class: 'btn btn-primary'

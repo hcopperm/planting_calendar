@@ -1,0 +1,28 @@
+- @scopes.each do |scope|
+  .btn= link_to "#{scope.to_s.titleize}", root_path(scope: scope)
+- if @tasks.empty?
+  %span.text-warning There are no crops!
+- else
+  %table.table.table-hover.table-bordered
+    %thead
+      %tr
+        %th Name
+        %th Plant By
+        %th Planted At
+        %th Harvested
+    %tbody
+      - @tasks.each do |task|
+        %tr
+          %td
+            %strong= link_to task.name, edit_planting_task_path(task)
+          %td.text-info= task.ideal_planting_date.strftime("%m/%d/%y")
+          - if task.planted_at?
+            %td.text-info= task.planted_at.strftime("%m/%d/%y")
+          - else
+            %td
+          - if task.completed?
+            %td.text-success= task.completed.strftime("%m/%d/%y")
+          - else
+            %td
+          %td.text-info= link_to "Delete", planting_task_path(task), method: :delete
+

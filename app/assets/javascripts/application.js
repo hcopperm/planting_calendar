@@ -12,5 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-datepicker
 //= require_tree .
 //= require bootstrap
+
+
+$(document).on('ready page:load', function () {
+  $(".datepicker").datepicker();
+});

@@ -4,8 +4,10 @@ class PlantingTasksController < ApplicationController
 
   def filtered_index
     @tasks = PlantingTask.all
-    @tasks = PlantingTask.send(params[:scope]) if params[:scope]
-
+    if params[:scope]
+      @tasks = PlantingTask.send(params[:scope])
+      @scope = params[:scope]
+    end
     @scopes = scope_filters
   end
 

@@ -1,8 +1,13 @@
 - @scopes.each do |scope|
-  .btn.scope= link_to "#{scope.to_s.titleize}", root_path(scope: scope), remote: true
+  .btn.scope{data: {name: scope.to_s.titleize }}= link_to "#{scope.to_s.titleize}", root_path(scope: scope)
 - if @tasks.empty?
   %span.text-warning There are no crops!
 - else
+  %h2
+    - if @scope
+      %span.scope-name= @scope.to_s.titleize
+    - else
+      All crops
   %table.table.table-hover.table-bordered
     %thead
       %tr

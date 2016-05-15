@@ -21,8 +21,7 @@ $(document).on('ready page:load', function () {
   $(".datepicker").datepicker();
 
   $(".scope").on("click", function() {
-    $(".scope").removeClass("selected");
-    $(this).addClass("selected");
+    $(".scope-name").text($(this).data("name"));
   });
 
 });

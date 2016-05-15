@@ -1,5 +1,5 @@
 - @scopes.each do |scope|
-  .btn.scope= link_to "#{scope.to_s.titleize}", root_path(scope: scope)
+  .btn.scope= link_to "#{scope.to_s.titleize}", root_path(scope: scope), remote: true
 - if @tasks.empty?
   %span.text-warning There are no crops!
 - else

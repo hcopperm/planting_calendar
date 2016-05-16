@@ -37,3 +37,9 @@ $header-img: image-url('brooks.jpg');
 table {
   margin-top: 10px;
 }
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}

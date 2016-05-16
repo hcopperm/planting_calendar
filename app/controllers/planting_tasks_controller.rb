@@ -5,7 +5,12 @@ class PlantingTasksController < ApplicationController
   def filtered_index
     @tasks = PlantingTask.all
     if params[:scope]
-      @tasks = PlantingTask.send(params[:scope])
+      if params[:date]
+        @tasks = PlantingTask.send(params[:scope], params[:date])
+        @date = Time.parse(params[:date])
+      else
+        @tasks = PlantingTask.send(params[:scope])
+      end
       @scope = params[:scope]
     end
     @scopes = scope_filters
@@ -52,7 +57,6 @@ class PlantingTasksController < ApplicationController
      :unharvested,
       :planted,
       :harvested,
-      :planted_on,
       :this_week,
       :today,
       :planting_overdue,

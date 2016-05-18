@@ -1,3 +1,5 @@
+%p
+  = link_to 'New Crop', new_planting_task_path,  class:  'btn btn-primary'
 - @scopes.each do |scope|
   .btn.scope{data: {name: scope.to_s.titleize }}= link_to "#{scope.to_s.titleize}", root_path(scope: scope)
 - if @tasks.empty?
@@ -7,7 +9,7 @@
     - if @scope
       - if @scope == "planted_on"
         Planted On
-        = @date.strftime("%m/%d/%y")
+        = @date
       - else
         %span.scope-name= @scope.to_s.titleize
     - else
@@ -24,7 +26,7 @@
         %tr
           %td
             %strong= link_to task.name, edit_planting_task_path(task)
-          %td.text-info= task.ideal_planting_date.strftime("%m/%d/%y")
+          %td.text-info= task.ideal_planting_date
           - if task.planted_at?
             %td.text-info= link_to_date(task.planted_at)
           - else

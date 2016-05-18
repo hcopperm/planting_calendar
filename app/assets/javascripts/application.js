@@ -18,7 +18,7 @@
 
 
 $(document).on('ready page:load', function () {
-  $(".datepicker").datepicker();
+  $(".datepicker").datepicker({format: 'mm/dd/yyyy'});
 
   $(".scope").on("click", function() {
     $(".scope-name").text($(this).data("name"));

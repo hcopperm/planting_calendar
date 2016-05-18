@@ -7,7 +7,7 @@ class PlantingTasksController < ApplicationController
     if params[:scope]
       if params[:date]
         @tasks = PlantingTask.send(params[:scope], params[:date])
-        @date = Time.parse(params[:date])
+        @date = params[:date]
       else
         @tasks = PlantingTask.send(params[:scope])
       end
@@ -22,7 +22,7 @@ class PlantingTasksController < ApplicationController
   end
 
   def create
-    @task = PlantingTask.create(task_params)
+    @task = PlantingTask.create(parsed_date_params)
     redirect_to root_path
   end
 
@@ -50,6 +50,19 @@ class PlantingTasksController < ApplicationController
       :completed,
       :notes
     )
+  end
+
+  def parsed_date_params
+    date_params = [:ideal_planting_date, :planted_at, :completed]
+    new_params = task_params
+    date_params.each do |param|
+      if new_params[param]
+        new_date = Date.strptime(new_params[param], "%m/%d/%Y")
+        new_params.delete(param)
+        new_params[param] = new_date
+      end
+    end
+    new_params
   end
 
   def scope_filters

@@ -26,13 +26,13 @@
         %tr
           %td
             %strong= link_to task.name, edit_planting_task_path(task)
-          %td.text-info= task.ideal_planting_date
+          %td.text-info= task.ideal_planting_date.strftime("%m/%d/%Y")
           - if task.planted_at?
             %td.text-info= link_to_date(task.planted_at)
           - else
             %td
           - if task.completed?
-            %td.text-success= task.completed.strftime("%m/%d/%y")
+            %td.text-success= task.completed.strftime("%m/%d/%Y")
           - else
             %td
           %td.text-info= link_to "Delete", planting_task_path(task), method: :delete

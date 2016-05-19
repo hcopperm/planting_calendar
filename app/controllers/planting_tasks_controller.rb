@@ -31,7 +31,7 @@ class PlantingTasksController < ApplicationController
   end
 
   def update
-    @task.update(task_params)
+    @task.update(parsed_date_params)
     redirect_to root_path
   end
 

@@ -17,15 +17,16 @@
  */
 
 @import  'bootstrap';
-$header-img: image-url('brooks.jpg');
-
+$header-img: image-url('roses.png');
 
 .hero-unit {
   background-image: $header-img;
-  background-size: 1100px 221px;
+  background-size: 1280px 221px;
+  border-radius: 0;
 
   a {
-    color: white;
+    font-family: Garamond;
+    color: #383838;
   }
 }
 

@@ -41,6 +41,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rescue'
   gem 'pry-clipboard', github: 'hjdivad/pry-clipboard', branch: 'dont-auto-newline'
+  gem 'puma'
 end
 
 group :development do

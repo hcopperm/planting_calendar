@@ -1,4 +1,6 @@
 class PlantingTask < ActiveRecord::Base
+
+  validates_presence_of :ideal_planting_date
   scope :unplanted,   -> { where(planted_at: nil) }
   scope :unharvested, -> { where(completed: nil) }
   scope :planted,     -> { where.not(planted_at: nil) }

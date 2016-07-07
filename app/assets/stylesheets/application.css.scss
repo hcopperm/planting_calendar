@@ -18,6 +18,11 @@
 
 @import  'bootstrap';
 $header-img: image-url('roses.png');
+$grey: #383838;
+
+body {
+  font-family: Garamond;
+}
 
 .hero-unit {
   background-image: $header-img;
@@ -25,22 +30,51 @@ $header-img: image-url('roses.png');
   border-radius: 0;
 
   a {
-    font-family: Garamond;
-    color: #383838;
+    &:hover {
+      text-decoration: none;
+    }
+    color: $grey;
   }
 }
 
-.scope.selected {
-  background-color: #BFBFBF;
-  background-image: none;
+.scope {
+  &.selected {
+    background-color: #BFBFBF;
+    background-image: none;
+  }
 }
 
 table {
   margin-top: 10px;
 }
 
-a {
-  &:hover {
-    text-decoration: none;
+// buttons
+
+.btn {
+  text-shadow: none;
+  width: 92px;
+
+  color: $grey;
+  border-color: $grey;
+  font-size: 16px;
+  background: none;
+  border-radius: 0;
+  &:first-child, :last-child {
+    border-radius: 0;
+  }
+  &.btn-primary {
+    &:hover {
+      background-color: $grey;
+      color: white;
+    }
+  }
+  a {
+    color: $grey;
+  }
+}
+
+.btn-group {
+  .btn:first-child, .btn:last-child {
+    border-radius: 0;
   }
 }

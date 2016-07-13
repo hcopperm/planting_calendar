@@ -56,6 +56,8 @@ Rails.application.routes.draw do
         #
 
   root to:  'planting_tasks#filtered_index'
-  resources :planting_tasks, except:  [:index]
+  resources :planting_tasks, except: [:index] do
+    put :update_from_index
+  end
 
 end

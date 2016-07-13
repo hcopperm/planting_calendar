@@ -16,6 +16,15 @@ class PlantingTasksController < ApplicationController
     @scopes = scope_filters
   end
 
+  def update_from_index
+    task = PlantingTask.find(params[:planting_task_id])
+    if params[:value]
+      new_date = Date.strptime(params[:value], "%m/%d/%Y")
+    end
+    task.update_attribute(params[:type], new_date)
+    render json: { success: "yes" }
+  end
+
   def new
     @task = PlantingTask.new
     render :show_form

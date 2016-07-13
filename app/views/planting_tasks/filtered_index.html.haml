@@ -3,7 +3,8 @@
     = link_to 'New Crop', new_planting_task_path,  class:  'btn btn-primary'
   .btn-group
     - @scopes.each do |scope|
-      .btn.scope{data: {name: scope.to_s.titleize }}= link_to "#{scope.to_s.titleize}", root_path(scope: scope)
+      .btn.scope{ data: {name: scope.to_s.titleize, selected: ((scope.to_s == @scope.to_s) ? "true" : nil) } }
+        = link_to "#{scope.to_s.titleize}", root_path(scope: scope)
   - if @tasks.empty?
     %h2 No matching crops
   - else

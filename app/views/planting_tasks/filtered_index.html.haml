@@ -16,7 +16,7 @@
           %span.scope-name= @scope.to_s.titleize
       - else
         All crops
-    %table.table.table-hover.table-bordered
+    %table.table.table-hover.table-bordered.task-table
       %thead
         %tr
           %th Name
@@ -33,10 +33,16 @@
             - if task.planted_at?
               %td.text-info= link_to_date(task.planted_at)
             - else
-              %td
+              %td.date
+                %span.hide
+                  = text_field_tag "#{task.id}", nil, placeholder: "mm/dd/yyyy", data: {type: "planted_at"}
+                  %span.update Update
             - if task.completed?
               %td.text-success= task.completed.strftime("%m/%d/%Y")
             - else
-              %td
+              %td.date
+                %span.hide
+                  = text_field_tag "#{task.id}", nil, placeholder: "mm/dd/yyyy", data: {type: "completed"}
+                  %span.update Update
             %td.text-info= link_to "Delete", planting_task_path(task), method: :delete
 

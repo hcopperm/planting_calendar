@@ -24,4 +24,27 @@ $(document).on('ready page:load', function () {
     $(".scope-name").text($(this).data("name"));
   });
 
+  $(".task-table .date").on("click", function() {
+    $(this).find("span").removeClass("hide").find("input").datepicker();
+  });
+
+  $(".task-table .update").on("click", function() {
+    var span = $(this).parent();
+    var input = span.find("input");
+    $.ajax({
+      url: "/planting_tasks/" + input.attr("id")+ "/update_from_index",
+      type: "PUT",
+      data: {
+        type: input.data("type"),
+        value: input.val()
+      },
+      success: function() {
+        span.addClass("hide");
+        var successEl = span.parent();
+        successEl.removeClass("date").addClass("text-success");
+        successEl.text(input.val());
+      }
+
+    });
+  })
 });

@@ -38,7 +38,7 @@ body {
 }
 
 .scope {
-  &.selected {
+  &[data-selected="true"] {
     background-color: #BFBFBF;
     background-image: none;
   }

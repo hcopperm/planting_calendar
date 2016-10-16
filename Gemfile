@@ -42,6 +42,11 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'pry-clipboard', github: 'hjdivad/pry-clipboard', branch: 'dont-auto-newline'
   gem 'puma'
+  gem 'rspec'
+  gem 'factory_girl', :require => false
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'timecop'
 end
 
 group :development do

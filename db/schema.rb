@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514191515) do
+ActiveRecord::Schema.define(version: 20161017201915) do
 
   create_table "planting_tasks", force: :cascade do |t|
     t.string   "name"
@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(version: 20160514191515) do
     t.datetime "updated_at",          null: false
     t.text     "notes"
     t.date     "planted_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
 end

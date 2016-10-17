@@ -57,7 +57,8 @@ class PlantingTasksController < ApplicationController
       :ideal_planting_date,
       :planted_at,
       :completed,
-      :notes
+      :notes,
+      :photo
     )
   end
 

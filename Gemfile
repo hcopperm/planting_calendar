@@ -3,6 +3,7 @@ gem 'haml'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
+gem 'paperclip'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

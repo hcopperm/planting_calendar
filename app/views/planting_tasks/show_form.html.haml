@@ -1,4 +1,5 @@
 .container
+  = image_tag @task.photo.url
   = simple_form_for @task, class: 'clearfix' do |f|
     = f.input :name
     = f.input :ideal_planting_date, as: :string, input_html: {class: 'datepicker'}
@@ -7,4 +8,5 @@
     - if @task.planted_at
       = f.input :completed, label: "Harvested on", as: :string, input_html: {class: 'datepicker'}
     = f.input :notes
+    = f.input :photo, as: :file
     = f.submit 'Save', class: 'btn btn-primary'

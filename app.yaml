@@ -1,0 +1,5 @@
+entrypoint: bundle exec rails server
+runtime: ruby
+vm: true
+env_variables:
+  secret_key_base: c5f0adcc5f06236fe4934b3fdda8582195549ae3fcfa42470cadd25b869409c2d71d6c1b986b850067f8aa0f1f9ca59ed48c03c72768ebf99dc13213c953eeae 

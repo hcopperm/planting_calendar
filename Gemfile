@@ -4,12 +4,14 @@ gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
 gem 'paperclip'
+gem "pg" # Use postgresql as the database for Active Record
+gem 'pg_search'
+gem 'postgres_ext' # Activerecord query methods for native Postgres data types
+gem 'activerecord-postgis-adapter'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
